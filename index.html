@@ -3,300 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turbo Fit 30 - Acelere Seu Metabolismo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tradicional Funcional Fit - Suplemento para Metabolismo e Saciedade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+        :root {
+            --primary: #FC0055;
+            --secondary: #15D512;
+            --dark: #000000;
+            --light: #FFFFFF;
+            --gray: #F4F4F4;
+            --text-dark: #000000;
+            --text-light: #FFFFFF;
+            --text-gray: #D6D6D6;
+        }
         
         body {
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: #333;
+            font-weight: 600;
         }
         
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
+        .bg-dark-custom {
+            background-color: var(--dark);
         }
         
-        .btn-primary {
-            background: linear-gradient(45deg, #FF512F, #F09819);
+        .bg-light-custom {
+            background-color: var(--light);
+        }
+        
+        .bg-gray-custom {
+            background-color: var(--gray);
+        }
+        
+        .text-primary-custom {
+            color: var(--primary);
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary);
+            color: var(--light);
+            font-weight: 800;
             border: none;
-            padding: 15px 40px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 50px;
             transition: all 0.3s ease;
         }
         
-        .btn-primary:hover {
+        .btn-primary-custom:hover {
+            background-color: #d40048;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(252, 0, 85, 0.3);
         }
         
-        .step-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            height: 100%;
-        }
-        
-        .step-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .step-number {
-            background: linear-gradient(45deg, #FF512F, #F09819);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-weight: 800;
-            color: #1a2a6c;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 5px;
-            background: linear-gradient(45deg, #FF512F, #F09819);
-            border-radius: 5px;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
-            color: white;
-            padding: 80px 0;
-        }
-        
-        .guarantee-badge {
-            background: white;
-            color: #1a2a6c;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        
-        .product-highlight {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 15px 0;
-        }
-        
-        .limited-spots {
-            background: linear-gradient(45deg, #FF512F, #F09819);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .pulse-animation {
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(252, 0, 85, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(252, 0, 85, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(252, 0, 85, 0);
+            }
         }
         
-        .logo-text {
-            font-weight: 800;
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, #FF512F, #F09819);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .banner-scroll {
+            background: #0b0b0c;
+            color: #f5f5f7;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 10px 0;
+        }
+        
+        .banner-track {
+            display: inline-flex;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            animation: banner-slide 22s linear infinite;
+        }
+        
+        .banner-scroll:hover .banner-track {
+            animation-play-state: paused;
+        }
+        
+        .banner-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #121316;
+            border: 1px solid #1e2127;
+            border-radius: 999px;
+            padding: 8px 12px;
+            color: #c9cdd3;
+            white-space: nowrap;
+        }
+        
+        .banner-pill strong {
+            color: #fff;
+        }
+        
+        .banner-pill svg {
+            width: 16px;
+            height: 16px;
+            color: #2df1d4;
+            flex: 0 0 auto;
+        }
+        
+        @keyframes banner-slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        
+        .price-old {
+            text-decoration: line-through;
+            color: #FF0000;
+        }
+        
+        .price-new {
+            color: #008000;
+            font-weight: bold;
+        }
+        
+        .benefit-item {
+            background-color: #E1E1E1;
+            border-radius: 17px;
+            padding: 30px 20px 10px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .bonus-card {
+            background-color: #F0F0F0;
+            border-radius: 23px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .guarantee-section {
+            background-color: var(--primary);
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wave-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-top svg {
+            position: relative;
+            display: block;
+            width: calc(123% + 1.3px);
+            height: 33px;
+        }
+        
+        .wave-top .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: #F3F3F3;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        
+        @media (max-width: 768px) {
+            .banner-pill {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            
+            .mobile-center {
+                text-align: center;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .banner-track {
+                animation: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Banner Promocional -->
+    <div id="promo-banner" class="py-3" style="background-color: #e53935; color: white; font-size: 16px; font-weight: 600; text-align: center;"></div>
+
     <!-- Hero Section -->
-    <section class="hero-section text-center">
+    <section class="bg-dark-custom text-light py-5">
         <div class="container">
-            <div class="limited-spots">PROCURA-SE 10 PESSOAS!</div>
-            <h1 class="display-3 fw-bold mb-4">Descubra os <span class="logo-text">2 Passes Simples</span> para Acelerar Seu Metabolismo</h1>
-            <p class="lead mb-5">Transforme seu corpo em uma máquina de queimar gordura com o método Turbo Fit 30</p>
-            <a href="https://kiwify.app/GNkBui6?afid=rrVftIQ6" class="btn btn-primary btn-lg">QUERO ACELERAR MEU METABOLISMO</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-4 fw-bold mb-4">Descubra como acelerar seu metabolismo e controlar a fome com o Tradicional Funcional Fit</h1>
+                    <p class="lead mb-4" style="color: #D6D6D6;">O suplemento natural que vai te ajudar a alcançar seu equilíbrio corporal, aumentar sua energia e promover sensação de saciedade</p>
+                    
+                    <div class="my-4">
+                        <img src="fit1.webp" alt="Tradicional Funcional Fit" class="img-fluid rounded shadow" style="max-height: 400px;">
+                    </div>
+                    
+                    <div class="my-4">
+                        <p class="price-old fs-4 mb-1">De R$ 270,00</p>
+                        <p class="fs-2 mb-1"><span class="price-new">Por apenas R$ 167,40</span></p>
+                    </div>
+                    
+                    <a href="https://mercadolivre.com/sec/1fNku5u" class="btn btn-primary-custom btn-lg rounded-pill px-5 py-3 mb-4 pulse-animation">
+                        <i class="fas fa-bolt me-2"></i>COMPRAR AGORA COM DESCONTO
+                    </a>
+                    
+                    <!-- Lista de Benefícios -->
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-8">
+                            <ul class="list-unstyled">
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Acelera o metabolismo naturalmente</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Promove sensação de saciedade</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Aumenta energia e disposição</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Equilibra a hidratação corporal</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Fórmula 100% natural e sem glúten</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Banner Animado -->
+                    <div class="banner-scroll mt-4">
+                        <ul class="banner-track">
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span><strong>Resultados</strong> rápidos</span>
+                            </li>
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                                <span><strong>100%</strong> natural</span>
+                            </li>
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span><strong>Comprovado</strong> cientificamente</span>
+                            </li>
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 11-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span><strong>Sem</strong> contraindicações</span>
+                            </li>
+                            
+                            <!-- Duplicado para loop contínuo -->
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span><strong>Resultados</strong> rápidos</span>
+                            </li>
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                                <span><strong>100%</strong> natural</span>
+                            </li>
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span><strong>Comprovado</strong> cientificamente</span>
+                            </li>
+                            <li class="banner-pill">
+                                <svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 11-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span><strong>Sem</strong> contraindicações</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Product Info Section -->
-    <section class="py-5">
+    <!-- Problema Section -->
+    <section class="bg-gray-custom py-5">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center text-uppercase mb-4" style="color: #000000; text-shadow: 0 0 10px rgba(253, 4, 4, 0.72);">Você está fazendo <span class="text-primary-custom">tudo errado...</span></h2>
+                    
+                    <div class="mb-4">
+                        <p class="mb-3">Tomar suplementos sem saber como funcionam ou esperar resultados milagrosos da noite para o dia qualquer pessoa pode fazer, não é?</p>
+                        <p class="mb-3">Mas o que <strong><u>90% das pessoas que buscam emagrecer não sabem</u></strong> é a forma correta de usar suplementos naturais. Eu diria... <span class="text-success"><strong>a forma estratégica de usar.</strong></span></p>
+                        <p class="mb-3">Porque se você acha que é só tomar um suplemento e continuar com os mesmos hábitos alimentares ruins, esperando ter sorte de emagrecer, pode tirar seu cavalinho da chuva.</p>
+                        <p class="mb-3">Se você ainda faz isso, provavelmente nem sabe o que está fazendo.</p>
+                        <p class="mb-3">Então, qual a forma certa? Qual suplemento funciona? Como potencializar os resultados? E a estratégia certa para emagrecer de forma saudável?</p>
+                    </div>
+                    
+                    <h3 class="text-center text-uppercase mb-4" style="color: #000000; text-shadow: 0 0 10px rgba(253, 4, 4, 0.72);">Essas são questões que com certeza tiram o seu sono não é mesmo?</h3>
+                    
+                    <div class="mb-4">
+                        <p class="mb-3">E eu sei disso por que era exatamente o que acontecia comigo quando resolvi buscar uma solução para meu metabolismo lento.</p>
+                        <p class="mb-3">E por isso hoje, você poderá ter acesso ao mesmo suplemento que eu utilizo para acelerar meu metabolismo e controlar minha fome <strong>sem precisar fazer dietas malucas!</strong></p>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="https://mercadolivre.com/sec/1fNku5u" class="btn btn-primary-custom btn-lg rounded-pill px-5 py-3 pulse-animation">
+                            <i class="fas fa-bolt me-2"></i>QUERO ACELERAR MEU METABOLISMO
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios do Produto -->
+    <section class="bg-dark-custom text-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-uppercase mb-5" style="text-shadow: 0 0 10px rgba(253, 4, 4, 0.72);">Tudo o que você vai ganhar com o Tradicional Funcional Fit</h2>
+                    
+                    <div class="benefit-item mb-4">
+                        <h4 class="fw-bold">Suporte Metabólico Completo</h4>
+                        <p class="mb-0">Auxilia na manutenção de um metabolismo eficiente, fundamental para o equilíbrio energético do seu corpo.</p>
+                    </div>
+                    
+                    <div class="benefit-item mb-4">
+                        <h4 class="fw-bold">Controle Natural do Apetite</h4>
+                        <p class="mb-0">Formulado com uma combinação especial de ervas que promove sensação de saciedade, auxiliando no controle de porções.</p>
+                    </div>
+                    
+                    <div class="benefit-item mb-4">
+                        <h4 class="fw-bold">Mais Energia e Disposição</h4>
+                        <p class="mb-0">Contribui para seu bem-estar geral, oferecendo mais energia e disposição para suas atividades diárias.</p>
+                    </div>
+                    
+                    <div class="benefit-item mb-4">
+                        <h4 class="fw-bold">Equilíbrio Hídrico Corporal</h4>
+                        <p class="mb-0">Ingredientes que dão suporte ao equilíbrio hídrico do corpo, essencial para o funcionamento ideal do organismo.</p>
+                    </div>
+                    
+                    <div class="benefit-item mb-4">
+                        <h4 class="fw-bold">Fórmula 100% Limpa</h4>
+                        <p class="mb-0">Produto livre de glúten e ingredientes artificiais, com composição natural e segura para consumo.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4 class="fw-bold">Resultados Visíveis em Pouco Tempo</h4>
+                        <p class="mb-0">Com uso consistente, você notará diferenças significativas em seu metabolismo e controle alimentar em poucas semanas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bônus Section -->
+    <section class="bg-light-custom py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="text-uppercase mb-4" style="color: #000000; text-shadow: 0 0 10px rgba(253, 4, 4, 0.72);">Além disso comprando hoje <strong>você vai receber 2 bônus grátis!</strong></h2>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6 mb-4">
+                            <div class="bonus-card">
+                                <i class="fas fa-book-open fa-3x text-primary-custom mb-3"></i>
+                                <h4 class="fw-bold">Guia de Alimentação Saudável</h4>
+                                <p class="mb-0">Um ebook completo com receitas e dicas para potencializar os resultados do Funcional Fit através da alimentação.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="bonus-card">
+                                <i class="fas fa-dumbbell fa-3x text-primary-custom mb-3"></i>
+                                <h4 class="fw-bold">Rotina de Exercícios em Casa</h4>
+                                <p class="mb-0">Sequência de exercícios simples que você pode fazer em casa para acelerar ainda mais seu metabolismo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preço Section -->
+    <section id="preco" class="bg-light-custom py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="fs-5 mb-3">O preço de todo esse benefício poderia facilmente custar mais de R$ 200 e ainda sim seria barato...</p>
+                    <p class="fs-5 mb-4">Mas você não vai investir nem perto disso!</p>
+                    
+                    <p class="fs-4 mb-4">Hoje você terá acesso ao Tradicional Funcional Fit + 2 Bônus EXCLUSIVOS pelo valor promocional de lançamento</p>
+                    
+                    <div class="my-4">
+                        <p class="price-old fs-3 mb-1"><em><strong>De R$ 270,00 por</strong></em></p>
+                        <p class="fs-1 mb-1"><em><strong><span class="price-new">Por apenas R$ 167,40</span></strong></em></p>
+                    </div>
+                    
+                    <p class="fs-6 mb-4">Com menos de 1 combo do Mc Donalds você tem acesso ao suplemento que vai transformar seu metabolismo</p>
+                    
+                    <a href="https://mercadolivre.com/sec/1fNku5u" class="btn btn-primary-custom btn-lg rounded-pill px-5 py-3 mb-4 pulse-animation">
+                        <i class="fas fa-shopping-cart me-2"></i>EU QUERO O TRADICIONAL FUNCIONAL FIT
+                    </a>
+                    
+                    <p class="text-primary-custom fw-bold"><i class="fas fa-exclamation-circle me-2"></i>ATENÇÃO: As vagas com esse valor serão LIMITADAS e logo logo o preço irá aumentar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia Section -->
+    <section class="guarantee-section py-5">
+        <div class="wave-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        
+        <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="product-highlight">
-                        <h2 class="section-title">O Que é o Turbo Fit 30?</h2>
-                        <p class="mb-4">O Turbo Fit 30 é um programa revolucionário que combina estratégias científicas para acelerar seu metabolismo e transformar seu corpo em uma máquina de queimar gordura.</p>
-                        <p>Com apenas <strong>2 passes simples</strong>, você aprenderá a otimizar seu corpo para resultados duradouros e visíveis em apenas 30 dias.</p>
-                    </div>
+                <div class="col-md-6 text-center mb-4 mb-md-0">
+                    <img src="https://seunegociodesucesso.com/wp-content/uploads/2023/10/garantia1-1.png" alt="Garantia de 7 dias" class="img-fluid" style="max-width: 80%;">
                 </div>
                 <div class="col-md-6">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Transformação física" class="img-fluid rounded shadow">
+                    <h2 class="fw-bold mb-3">GARANTIA DE 7 DIAS</h2>
+                    <p class="mb-3">Mais um Incentivo Para Provar que o Tradicional Funcional Fit é Para Você</p>
+                    <p class="mb-3">VOCÊ TEM 7 DIAS DE GARANTIA INCONDICIONAL!</p>
+                    <p class="mb-0">Se por algum motivo você achar que o produto não é pra você, é só me mandar um único e-mail que devolvo todo o seu dinheiro.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Steps Section -->
-    <section class="py-5 bg-light">
+    <!-- FAQ Section -->
+    <section class="bg-light-custom py-5">
         <div class="container">
-            <h2 class="section-title text-center">Os 2 Passes Simples do Método</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3 class="h4 mb-3">Estratégia de Alta Densidade</h3>
-                        <p class="mb-3">Aplicar exercícios de alta densidade no mínimo <strong>3x na semana</strong> para maximizar a queima calórica e acelerar o metabolismo.</p>
-                        <p>Este método científico garante resultados mais rápidos com menos tempo de exercício, otimizando cada minuto do seu treino.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3 class="h4 mb-3">Moderação Alimentar Progressiva</h3>
-                        <p class="mb-3">Reduzir gradualmente as quantias de alimentos, diminuindo <strong>10% a cada mês</strong>, enquanto introduz mudanças sustentáveis.</p>
-                        <p>Foco em aumentar o consumo de água, vegetais e reduzir açúcar, gordura e alimentos industrializados sem restrições extremas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center">O Que Você Vai Conseguir</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="text-center p-4">
-                        <div class="mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FF512F" class="bi bi-lightning-charge" viewBox="0 0 16 16">
-                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
-                            </svg>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="text-uppercase mb-5" style="color: #000000; text-shadow: 0 0 10px rgba(253, 4, 4, 0.72);">Perguntas frequentes <strong>(só para quem rolou a página até o fim...)</strong></h2>
+                    
+                    <div class="accordion mb-5" id="faqAccordion">
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    PERAI, POR QUE TÃO BARATO?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Essa é uma forma de mostrar para o mercado que é possível oferecer um produto de qualidade a um preço acessível, fazendo mais pessoas terem a mesma oportunidade que eu estou tendo, e ainda sim criar um relacionamento de confiança com você.
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="h5 mb-3">Metabolismo Acelerado</h4>
-                        <p>Seu corpo queimará calorias de forma mais eficiente, mesmo em repouso.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="text-center p-4">
-                        <div class="mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FF512F" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
-                            </svg>
+                        
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    EU REALMENTE VOU TER RESULTADOS?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Eu te desafio a usar o Tradicional Funcional Fit conforme as instruções por 30 dias e não notar diferenças no seu metabolismo, energia e controle do apetite.
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="h5 mb-3">Resultados Visíveis</h4>
-                        <p>Perda de gordura consistente e ganho de massa muscular definida.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="text-center p-4">
-                        <div class="mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FF512F" class="bi bi-heart-pulse" viewBox="0 0 16 16">
-                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01L8 2.748ZM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 2.94-5.788 4.566-2.648-1.626-4.523-3-5.788-4.566Z"/>
-                                <path d="M10.464 3.314a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.647A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162l-1.874-4.686Z"/>
-                            </svg>
+                        
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    COMO EU VOU RECEBER O PRODUTO?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    O envio é feito imediatamente após a confirmação do pagamento. Você receberá um código de rastreamento para acompanhar sua entrega.
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="h5 mb-3">Saúde Melhorada</h4>
-                        <p>Mais energia, melhor qualidade do sono e saúde cardiovascular otimizada.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center">O Que Nossos Alunos Dizem</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p>"Em apenas 3 semanas seguindo o método Turbo Fit 30, já perdi 4kg e ganhei muita energia. Os passes são realmente simples de seguir!"</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <div>
-                                <h5 class="mb-0">Maria S.</h5>
-                                <small class="text-muted">35 anos</small>
+                        
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    E SE EU NÃO GOSTAR?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ahhh você já sabe meu querido. É só pedir o reembolso dentro do prazo de 7 dias!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    TEM CONTRAINDICAÇÃO?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    O produto é 100% natural e não possui contraindicações. No entanto, gestantes, lactantes e pessoas com condições médicas específicas devem consultar um médico antes do uso.
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p>"Finalmente encontrei um método que não exige horas na academia. Com apenas 30 minutos, 3x por semana, estou vendo resultados incríveis!"</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <div>
-                                <h5 class="mb-0">João P.</h5>
-                                <small class="text-muted">42 anos</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <p>"A estratégia de moderação alimentar progressiva mudou minha relação com a comida. Estou comendo melhor sem sentir que estou em dieta restritiva."</p>
-                        <div class="d-flex align-items-center mt-3">
-                            <div>
-                                <h5 class="mb-0">Ana L.</h5>
-                                <small class="text-muted">28 anos</small>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <h3 class="text-uppercase mb-4" style="color: #000000; text-shadow: 0 0 10px rgba(253, 4, 4, 0.72);">Se você chegou até aqui e <strong>ainda não se convenceu</strong> eu não sei mais o que fazer...</h3>
+                    
+                    <a href="https://mercadolivre.com/sec/1fNku5u" class="btn btn-primary-custom btn-lg rounded-pill px-5 py-3 pulse-animation">
+                        <i class="fas fa-bolt me-2"></i>CLIQUE PARA SAIR DA INDECISÃO
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section text-center">
-        <div class="container">
-            <h2 class="display-5 fw-bold mb-4">Pronto para Transformar Seu Corpo?</h2>
-            <p class="lead mb-4">Junte-se às 10 pessoas selecionadas e descubra como acelerar seu metabolismo com apenas 2 passes simples.</p>
-            <div class="guarantee-badge">Garantia de Satisfação</div>
-            <a href="https://kiwify.app/GNkBui6?afid=rrVftIQ6" class="btn btn-primary btn-lg">QUERO ME INSCREVER AGORA</a>
-            <p class="mt-3"><small>Vagas limitadas - Não perca esta oportunidade única!</small></p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-white text-center">
+    <footer class="bg-dark-custom text-light py-4">
         <div class="container">
-            <p class="mb-0">© 2023 Turbo Fit 30. Todos os direitos reservados.</p>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-2">Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
+                    <p class="mb-0">Copyright 2025 – Todos os Direitos Reservados | Política de Privacidade</p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script para o banner promocional com data atual
+        const hoje = new Date();
+        const dia = String(hoje.getDate()).padStart(2, '0');
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const ano = hoje.getFullYear();
+        const dataFormatada = `${dia}/${mes}/${ano}`;
+        
+        const banner = document.getElementById("promo-banner");
+        banner.innerHTML = `🎯 <strong>Oferta válida somente hoje (${dataFormatada})</strong> com <strong>38% de desconto</strong>. Garanta agora enquanto ainda está ativo!`;
+    </script>
 </body>
 </html>
